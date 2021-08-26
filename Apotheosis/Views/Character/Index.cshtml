@@ -1,0 +1,19 @@
+﻿@using Apotheosis.Models
+@model List<Character>
+
+@{
+    ViewBag.Title = "Character";
+}
+
+<h2>Character</h2>
+
+@foreach (var item in Model)
+{
+    <p>@item.FirstName</p>
+    <p>@item.LastName</p>
+    <p>@item.DateOfBirth</p>
+    <p>@item.Id</p>
+    <hr />
+}
+
+@{Html.RenderPartial("CharacterCreate", new Character());}

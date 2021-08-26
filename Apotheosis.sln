@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apotheosis", "Apotheosis\Apotheosis.csproj", "{191485E3-2A9A-45C0-B887-F75EC91A3AFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apotheosis.Tests", "Apotheosis.Tests\Apotheosis.Tests.csproj", "{E4676E15-9DC6-4793-AB86-BBA66ED830CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{191485E3-2A9A-45C0-B887-F75EC91A3AFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{191485E3-2A9A-45C0-B887-F75EC91A3AFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{191485E3-2A9A-45C0-B887-F75EC91A3AFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{191485E3-2A9A-45C0-B887-F75EC91A3AFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4676E15-9DC6-4793-AB86-BBA66ED830CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4676E15-9DC6-4793-AB86-BBA66ED830CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4676E15-9DC6-4793-AB86-BBA66ED830CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4676E15-9DC6-4793-AB86-BBA66ED830CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C6B1A72-A12F-45E9-81E1-60AD3E24EBF3}
+	EndGlobalSection
+EndGlobal
