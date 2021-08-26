@@ -3,12 +3,13 @@ using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.Configuration;
 
 namespace Apotheosis.Services
 {
-    public class CharacterService
+    public class CharacterService : IService<Character>
     {
         private readonly IMongoCollection<Character> _characters;
         private static CharacterService service;
@@ -45,6 +46,31 @@ namespace Apotheosis.Services
         {
             _characters.InsertOne(character);
             return character;
+        }
+
+        public Character Get(Expression expression)
+        {
+            return (Character)_characters.Find((FilterDefinition<Character>)expression);
+        }
+
+        public Character Update(Character character)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Character Delete(Character character)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Character Delete(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Character Delete(object querey)
+        {
+            throw new NotImplementedException();
         }
     }
 }
