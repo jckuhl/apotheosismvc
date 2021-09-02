@@ -148,7 +148,12 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+            <input type="submit" value="Create" class="btn btn-default" id="submit" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <span style="visibility:hidden" id="response"></span>
         </div>
     </div>
 </div>
@@ -157,3 +162,39 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<script>
+    const submit = document.querySelector('#submit');
+    const form = document.querySelector('#newCharacter');
+    const responseNotification = document.querySelector('#response');
+
+    const inputs = Array.from(form.elements).filter((element) => {
+        return element.type !== "hidden" && element.type !== "submit" && element.name !== ""
+    });
+
+    submit.addEventListener('click', async (event) => {
+        event.preventDefault();
+        let data = {};
+        inputs.forEach((element) => {
+            data[element.name] = element.value;
+        });
+        const response = await (await fetch('/Character/Create', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })).json();
+        if (response && response.toLowerCase() === 'success') {
+            responseNotification.style.visibility = 'visible';
+            responseNotification.classList.add('success');
+            responseNotification.innerHTML = 'Success';
+        } else {
+            responseNotification.style.visibility = 'visible';
+            responseNotification.classList.add('danger');
+            responseNotification.innerHTML = 'Error';
+        }
+        setTimeout(() => responseNotification.style.visibility = 'hidden', 5000);
+    });
+</script>

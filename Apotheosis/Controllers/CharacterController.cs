@@ -35,39 +35,17 @@ namespace Apotheosis.Controllers
 
         // POST: Character/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Character data)
         {
             try
             {
-                var character = new Character()
-                {
-                    UserId = "0123", //TODO: User ID from log in
-                    FirstName = collection["FirstName"],
-                    MiddleName = collection["MiddleName"],
-                    LastName = collection["LastName"],
-                    PlaceOfBirth = collection["PlaceOfBirth"],
-                    Nationality = collection["Nationality"],
-                    Species = collection["Species"],
-                    Race = collection["Race"],
-                    Gender = collection["Gender"],
-                    Sex = collection["Sex"],
-                    SexualOrientation = collection["SexualOrientation"],
-                    Biography = collection["Biography"],
-                    DateOfBirth = collection["DateOfBirth"],
-                };
-                List<string> customKeys = collection.AllKeys.ToList().FindAll(key => key.Contains("custom"));
-                foreach(var ck in customKeys)
-                {
-                    var k = ck.Substring("custom_".Length);
-                    character.CustomValues.Add(k, collection["custom_" + k]);
-                }
-                _charService.Create(character);
-                return RedirectToAction("Index");
+                data.UserId = "0123";   //TODO: Get from the user who should be in session or something
+                _charService.Create(data);
+                return Json("Success");
             }
-            catch(Exception e)
+            catch (Exception)
             {
-                //ToDo display error?
-                throw e;
+                return Json("Error");
             }
         }
 
